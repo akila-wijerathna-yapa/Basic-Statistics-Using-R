@@ -1,3 +1,8 @@
 section
 the-pool-of-tears
 a-caucus-race-and-a-long-tale
+normal-distribution-and-measures-of-dispersion
+relationship-of-null-hypothesis-and-p-value
+hypothesis-testing
+relationship-of-null-hypothesis-and-p-value-1
+linear-models

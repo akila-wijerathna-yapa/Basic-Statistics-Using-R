@@ -1,12 +1,4 @@
---- 
-title: "Basic Statistics Using R"
-author: "Akila Wijerathna Yapa"
-date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
----
-
-# Normal Distribution and Measures of Dispersion
-
+# Hypothesis Testing
 
 ##  Relationship of null hypothesis and p value
 
