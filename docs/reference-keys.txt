@@ -1,4 +1,3 @@
-section
 normal-distribution-and-measures-of-dispersion
 relationship-of-null-hypothesis-and-p-value
 hypothesis-testing
