@@ -3,3 +3,5 @@ relationship-of-null-hypothesis-and-p-value
 hypothesis-testing
 relationship-of-null-hypothesis-and-p-value-1
 linear-models
+types-of-null-distributions
+null-distribution
