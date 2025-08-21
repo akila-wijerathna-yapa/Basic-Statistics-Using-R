@@ -5,8 +5,7 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Tutorial"
-      href: Basic_Statistics_Using_R.html
+
 output:
   html_document:
     theme: readable

@@ -329,9 +329,6 @@ div.tocify {
         <li>
   <a href="index.html">Home</a>
 </li>
-<li>
-  <a href="Basic_Statistics_Using_R.html">Tutorial</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -360,14 +357,14 @@ div.tocify {
 
 
 <div id="getting-started" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> 1. Getting started</h1>
+<h1><span class="header-section-number">1</span> Getting started</h1>
 <p>This short tutorial walks through <strong>objects, vectors, data
 frames, plotting, and basic statistics</strong> in R. Each section
 explains the <strong>logic</strong> first, then shows the
 <strong>code</strong>.</p>
 </div>
 <div id="objects-and-basic-types" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> 2. Objects and basic
+<h1><span class="header-section-number">2</span> Objects and basic
 types</h1>
 <p><strong>Logic.</strong> In R, everything is an object. We can assign
 values with <code>&lt;-</code> and check their types with
@@ -394,8 +391,8 @@ class(x)</code></pre>
 </div>
 <div id="vectors-and-vectorized-operations" class="section level1"
 number="3">
-<h1><span class="header-section-number">3</span> 3. Vectors and
-vectorized operations</h1>
+<h1><span class="header-section-number">3</span> Vectors and vectorized
+operations</h1>
 <p><strong>Logic.</strong> Vectors are the fundamental 1‑D data
 structure. Operations are <strong>vectorized</strong>, so arithmetic
 applies element‑wise.</p>
@@ -411,7 +408,7 @@ num_vec * 2</code></pre>
 <pre><code>## [1] 11 22 33 44 55</code></pre>
 </div>
 <div id="data-frames" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> 4. Data frames</h1>
+<h1><span class="header-section-number">4</span> Data frames</h1>
 <p><strong>Logic.</strong> Data frames are table‑like objects where each
 column is a vector of equal length. They are ideal for tabular data such
 as proteomics annotations or results.</p>
@@ -429,7 +426,7 @@ df_small</code></pre>
 </div>
 </div>
 <div id="a-larger-example-dataset" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> 5. A larger example
+<h1><span class="header-section-number">5</span> A larger example
 dataset</h1>
 <p><strong>Logic.</strong> Below we construct a larger table
 <code>df</code> containing <strong>protein IDs</strong>,
@@ -473,7 +470,7 @@ head(df)</code></pre>
 ##                                        Max.   :0.98280</code></pre>
 </div>
 <div id="access-modify-subset" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> 6. Access, modify,
+<h1><span class="header-section-number">6</span> Access, modify,
 subset</h1>
 <pre class="r"><code># Access columns
 df$ID[1:5]</code></pre>
@@ -494,7 +491,7 @@ head(extracellular_df)</code></pre>
 </div>
 </div>
 <div id="visualization" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> 7. Visualization</h1>
+<h1><span class="header-section-number">7</span> Visualization</h1>
 <div id="base-r-bar-plot" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Base R bar plot</h2>
 <pre class="r"><code>barplot(table(df$Location),
@@ -528,7 +525,7 @@ ggplot(df, aes(x = Location)) +
 </div>
 </div>
 <div id="descriptive-statistics" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> 8. Descriptive
+<h1><span class="header-section-number">8</span> Descriptive
 statistics</h1>
 <pre class="r"><code>mean(df$Value)</code></pre>
 <pre><code>## [1] 0.02263796</code></pre>
@@ -556,7 +553,7 @@ t_test_result</code></pre>
 ## 0.02263796</code></pre>
 </div>
 <div id="simple-linear-regression" class="section level1" number="10">
-<h1><span class="header-section-number">10</span> 10. Simple linear
+<h1><span class="header-section-number">10</span> Simple linear
 regression</h1>
 <pre class="r"><code>if (nrow(df) &gt; 1) {
   lm_result &lt;- lm(Value ~ as.numeric(factor(Location)), data = df)
@@ -580,9 +577,8 @@ regression</h1>
 ## F-statistic: 1.435 on 1 and 21 DF,  p-value: 0.2443</code></pre>
 </div>
 <div id="references" class="section level1" number="11">
-<h1><span class="header-section-number">11</span> 11. References</h1>
-<p>Below are external resources. Write links in
-<strong>markdown</strong>, not inside an R code chunk.</p>
+<h1><span class="header-section-number">11</span> References</h1>
+<p>Below are external resources.</p>
 <ul>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=7chKhQ2UFx4"
 class="uri">https://www.youtube.com/watch?v=7chKhQ2UFx4</a></li>
@@ -592,7 +588,7 @@ class="uri">https://github.com/ZenBrayn/asms_2020_fall_workshop/tree/main/presen
 </ul>
 </div>
 <div id="session-info" class="section level1" number="12">
-<h1><span class="header-section-number">12</span> 12. Session info</h1>
+<h1><span class="header-section-number">12</span> Session info</h1>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 4.4.2 (2024-10-31 ucrt)
 ## Platform: x86_64-w64-mingw32/x64
