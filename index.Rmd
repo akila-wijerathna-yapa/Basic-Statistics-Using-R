@@ -1,22 +1,18 @@
---- 
+---
 title: "Basic Statistics Using R"
-author: "Akila Wijerathna Yapa"
-date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+output:
+  html_document:
+    toc: false
+    toc_float: false
+    number_sections: false
 ---
 
-# Normal Distribution and Measures of Dispersion
+This is the landing page for **Basic Statistics Using R**.
 
+- Open the tutorial: [Basic_Statistics_Using_R.html](Basic_Statistics_Using_R.html)
 
-##  Relationship of null hypothesis and p value
+To rebuild the site locally and publish to GitHub Pages, run:
 
-The null hypothesis and p-value are two important concepts in statistical hypothesis testing, where we aim to determine whether an observed effect or result is statistically significant or not.
-
-The null hypothesis is a statement that assumes there is no significant difference between two groups or variables. It's often denoted as H0, and it's the default assumption until proven otherwise.
-
-The p-value, on the other hand, is the probability of observing a result as extreme as, or more extreme than, the one observed if the null hypothesis is true. In other words, it measures the likelihood of obtaining the observed result by chance alone, assuming that there is no real difference between the groups or variables being compared.
-
-If the p-value is very small (typically less than 0.05 or 0.01), then it's unlikely that the observed result occurred by chance alone, and we reject the null hypothesis. In contrast, if the p-value is relatively large, we fail to reject the null hypothesis and conclude that there is insufficient evidence to suggest that there is a significant difference between the groups or variables being compared.
-
-Therefore, the p-value provides a way to quantify the evidence against the null hypothesis. It tells us how likely the observed result would be if the null hypothesis were true. If this likelihood is very low, we reject the null hypothesis and conclude that the observed result is statistically significant.
-
+```r
+rmarkdown::render_site(output_dir = "docs")
+```

@@ -1,0 +1,15 @@
+name: "Basic Statistics Using R"
+output_dir: "docs"
+navbar:
+  title: "Basic Statistics Using R"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Tutorial"
+      href: Basic_Statistics_Using_R.html
+output:
+  html_document:
+    theme: readable
+    toc: true
+    toc_float: true
+    number_sections: true

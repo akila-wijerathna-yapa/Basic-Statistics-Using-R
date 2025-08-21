@@ -1,8 +1,0 @@
-book_filename: "bookdownproj"
-output_dir: docs
-delete_merged_file: true
-edit: https://akilawijerathnayapa.github.io/Basic-Statistics-Using-R/edit/main/%s
-view: https://akilawijerathnayapa.github.io/Basic-Statistics-Using-R/blob/main/%s
-language:
-  ui:
-    chapter_name: "Chapter "
