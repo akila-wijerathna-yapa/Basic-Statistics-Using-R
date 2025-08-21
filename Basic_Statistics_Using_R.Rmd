@@ -1,0 +1,184 @@
+---
+title: "Basic Statistics Using R"
+author: "Akila Wijerathna-Yapa"
+date: "`r format(Sys.Date())`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    df_print: paged
+    fig_width: 8
+    fig_height: 5
+---
+
+```{r setup, include=FALSE}
+# Global chunk options
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+set.seed(123)
+```
+
+# 1. Getting started
+
+This short tutorial walks through **objects, vectors, data frames, plotting, and basic statistics** in R. Each section explains the **logic** first, then shows the **code**.
+
+# 2. Objects and basic types
+
+**Logic.** In R, everything is an object. We can assign values with `<-` and check their types with `class()`.
+
+```{r objects}
+# Variable assignment
+x <- 5              # numeric (double)
+y <- "Hello"        # character (string)
+z <- TRUE           # logical (boolean)
+
+# Print values
+x
+y
+z
+
+# Check data types
+class(x)
+class(y)
+class(z)
+```
+
+# 3. Vectors and vectorized operations
+
+**Logic.** Vectors are the fundamental 1‑D data structure. Operations are **vectorized**, so arithmetic applies element‑wise.
+
+```{r vectors}
+# Create vectors
+num_vec  <- c(1, 2, 3, 4, 5)
+char_vec <- c("a", "b", "c")
+log_vec  <- c(TRUE, FALSE, TRUE)
+
+# Vector operations (element‑wise)
+num_vec * 2
+num_vec + c(10, 20, 30, 40, 50)
+```
+
+# 4. Data frames
+
+**Logic.** Data frames are table‑like objects where each column is a vector of equal length. They are ideal for tabular data such as proteomics annotations or results.
+
+```{r data-frame-simple}
+# A tiny example data frame
+df_small <- data.frame(
+  name    = c("Alice", "Bob", "Charlie"),
+  age     = c(25, 30, 35),
+  student = c(TRUE, FALSE, TRUE)
+)
+df_small
+```
+
+# 5. A larger example dataset
+
+**Logic.** Below we construct a larger table `df` containing **protein IDs**, **cellular locations**, and many numeric columns. We then inspect structure and summary.
+
+```{r build-df}
+df <- structure(
+  list(
+    ID = c("AT5G54740.1","AT5G55730.2","AT5G57655.2","AT5G64100.1","AT5G64260.1","AT5G67360.1",
+           "AT1G30630.1","AT1G62380.1","AT1G70830.1","AT3G14990.1","AT4G18800.1","AT4G24510.1",
+           "AT5G15650.1","AT5G19820.1","AT5G59840.1","AT5G47200.1","AT1G12840.1","AT1G76030.1",
+           "AT1G78900.2","AT3G42050.1","AT4G11150.1","AT1G11860.2","AT1G17290.1"),
+    Location = c("extracellular","extracellular","extracellular","extracellular","extracellular","extracellular",
+                 "golgi","golgi","golgi","golgi","golgi","golgi","golgi","golgi","golgi","ER","ER","ER",
+                 "mitochondrion","mitochondrion","mitochondrion","mitochondrion","mitochondrion"),
+    AOX_1h_1 = c(0.844651873,0.50954096,1.12e-08,0.012981372,0.978148381,0.027579578,0.068010151,0.410629215,
+                 0.253838635,0.033631788,0.335713512,0.982799013,0.025910457,0.793810264,0.762431665,0.152154436,
+                 0.027114103,0.000227,1.07e-05,0.721209032,0.086281162,0.483130711,0.014795515)
+  ),
+  class = "data.frame", row.names = c(NA, -23L)
+)
+
+# Inspect
+head(df)
+str(df)
+summary(df)
+```
+
+# 6. Access, modify, subset
+
+```{r subset}
+# Access columns
+df$ID[1:5]
+df[["Location"]][1:5]
+
+# Add a new numeric column
+df$New_Column <- seq_len(nrow(df))
+
+# Subset by condition
+extracellular_df <- subset(df, Location == "extracellular")
+head(extracellular_df)
+```
+
+# 7. Visualization
+
+## Base R bar plot
+
+```{r base-barplot}
+barplot(table(df$Location),
+        main = "Distribution of Locations",
+        xlab = "Location", ylab = "Count")
+```
+
+## Create a numeric variable and line plot
+
+```{r value-and-plot}
+# Add a numeric variable
+df$Value <- rnorm(nrow(df), mean = 0, sd = 1)
+
+plot(df$Value, type = "o",
+     main = "Example Scatter/Line Plot",
+     xlab = "Index", ylab = "Value")
+```
+
+## ggplot2 bar plot
+
+```{r ggplot2}
+if (!requireNamespace("ggplot2", quietly = TRUE)) install.packages("ggplot2")
+library(ggplot2)
+
+ggplot(df, aes(x = Location)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(title = "Protein Locations",
+       x = "Location", y = "Count")
+```
+
+# 8. Descriptive statistics
+
+```{r descriptive}
+mean(df$Value)
+sd(df$Value)
+summary(df$Value)
+```
+
+# 9. One-sample t-test
+
+```{r ttest}
+t_test_result <- t.test(df$Value, mu = 0)
+t_test_result
+```
+
+# 10. Simple linear regression
+
+```{r regression}
+if (nrow(df) > 1) {
+  lm_result <- lm(Value ~ as.numeric(factor(Location)), data = df)
+  summary(lm_result)
+}
+```
+
+# 11. Session info
+
+```{r session-info}
+sessionInfo()
+```
